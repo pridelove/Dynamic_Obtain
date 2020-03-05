@@ -8,20 +8,20 @@ import pymysql
 import requests
 
 #手机端Cookies
-cookie = 'access_token=172cc4d72cc2274629dc0610de091f31;refresh_token=6d242cf8a9f947017fc790e7fdd79131;bili_jct=cee3e61354a4cd7968db152e8cfb949e;DedeUserID=438966151;DedeUserID__ckMd5=16d8dd755801acb0;sid=4pr83c90;SESSDATA=51df4107%2C1585933077%2Cc044d931'
+cookie = ''
 access = re.findall(r'access_token=(\S+);', cookie)[0].split(";")[0]
 sid = re.findall(r'sid=(\S+);', cookie)[0]
 refresh = re.findall(r'refresh_token=(\S+);', cookie)[0]
 # 连接数据库
-db = pymysql.connect("localhost", "root", "a147896325", "dynamic")
+db = pymysql.connect("localhost", "账号", "密码", "dynamic")
 # 使用cursor()方法获取操作游标
 cursor = db.cursor()
 # 假设最新一条动态数据id
-dynamic_id_temp = '362878591388661566'
+dynamic_id_temp = '0'
 # 微信推送  使用Server酱
-SCKEY = 'SCU56317Tf08e679b63225b0d4a9222039815fc4e5d3dc88f4ae40'
+SCKEY = ''
 #qq群推送
-group_id = 921261615
+group_id = 
 
 # 获取时间戳
 def CurrentTime():
@@ -119,8 +119,7 @@ def search_dynamic(word):
 # 运行主程序
 def run():
     # 搜索+存放数据库
-    word_list = ['点赞前', '点赞数前', '点赞数第', '点赞最多', '点赞最高', '点赞最', '点赞第一', '点赞第', '点赞量前', '点赞量最', '点赞量第', '热评送', '评论中抽',
-                 '评论前', '点赞抽奖', '评论第', '热评前']
+    word_list = ['党妹']
     while True:
         for word in range(0, len(word_list)):
             print("当前搜索关键词%s" % word_list[word])
