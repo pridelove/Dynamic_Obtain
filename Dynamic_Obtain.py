@@ -137,7 +137,7 @@ def search_new_dynamic():
         Qq_Push(desp)
     else:
         print("还没有新的动态喔")
-    # 每5s查询一次
+
 
 
 
@@ -171,7 +171,7 @@ def run():
         for word in range(0, len(word_list)):
             print("当前搜索关键词%s" % word_list[word])
             search_dynamic(word_list[word])
-            # 休眠5s 避免爬取太快 导致412
+            # 休眠10s 避免爬取太快 导致412
             time.sleep(10)
         # 每120s更新数据库
         time.sleep(120)
