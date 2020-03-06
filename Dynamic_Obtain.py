@@ -115,22 +115,6 @@ def search_dynamic(word):
             #else:
                 #print("数据库已有该动态%s" % dynamic_id)
 
-
-# 运行主程序
-def run():
-    # 搜索+存放数据库
-    word_list = ['党妹']
-    while True:
-        for word in range(0, len(word_list)):
-            print("当前搜索关键词%s" % word_list[word])
-            search_dynamic(word_list[word])
-            # 休眠5s 避免爬取太快 导致412
-            time.sleep(10)
-        # 每120s更新数据库
-        time.sleep(120)
-    # 查询最新一条并输出
-
-
 # 更新最新一条动态
 def search_new_dynamic():
     global dynamic_id_temp
@@ -178,7 +162,20 @@ def Qq_Push(desp):
     }
     response = requests.request('post', url, data=data).json()
     print(response)
-
+    
+# 运行主程序
+def run():
+    # 搜索+存放数据库
+    word_list = ['党妹']
+    while True:
+        for word in range(0, len(word_list)):
+            print("当前搜索关键词%s" % word_list[word])
+            search_dynamic(word_list[word])
+            # 休眠5s 避免爬取太快 导致412
+            time.sleep(10)
+        # 每120s更新数据库
+        time.sleep(120)
+    # 查询最新一条并输出
 
 if __name__ == "__main__":
     run()
